@@ -6,15 +6,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class WordDAO {
 
 	/*
 	 * Ritorna tutte le parole di una data lunghezza
 	 */
-	public List<String> getAllWordsFixedLength(int length) {
+	public List<String> getAllWordsFixedLength(int length, Map<String, Integer> idMap) {
 
-		String sql = "SELECT nome FROM parola WHERE LENGTH(nome) = ?;";
+		String sql = "SELECT nome, id FROM parola WHERE LENGTH(nome) = ?;";
 		List<String> parole = new ArrayList<String>();
 
 		try {
@@ -24,9 +25,17 @@ public class WordDAO {
 			ResultSet res = st.executeQuery();
 
 			while (res.next()) {
-				parole.add(res.getString("nome"));
+				
+				if(idMap.get(res.getString("nome"))==null) {
+					idMap.put(res.getString("nome"), res.getInt("id"));
+					parole.add(res.getString("nome"));
+				}else {
+					parole.add(res.getString("nome"));
+				}
+				
 			}
-
+			
+			conn.close();
 			return parole;
 
 		} catch (SQLException e) {

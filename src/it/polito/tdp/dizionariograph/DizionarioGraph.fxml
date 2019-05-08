@@ -1,7 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
-	
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.dizionariograph.DizionarioGraphController">
-	<!-- TODO Add Nodes -->
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="it.polito.tdp.dizionariograph.DizionarioGraphController">
+   <top>
+      <Label text="Lab7_Dizionario" BorderPane.alignment="CENTER" />
+   </top>
+   <center>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <HBox>
+               <children>
+                  <Label text="Inserire il numero di lettere:">
+                     <padding>
+                        <Insets right="25.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="txtNumeroLettere" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label text="Inserire una parola da cercare:">
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="txtParolaCercare" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+            <HBox>
+               <children>
+                  <Button fx:id="btnGenera" mnemonicParsing="false" onAction="#doGeneraGrafo" text="Genera Grafo">
+                     <HBox.margin>
+                        <Insets right="100.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="btnVicini" mnemonicParsing="false" onAction="#doTrovaVicini" text="Trova vicini">
+                     <HBox.margin>
+                        <Insets right="100.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="btnGradoMax" mnemonicParsing="false" onAction="#doTrovaGradoMax" text="Trova Grado Max" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+            <TextArea fx:id="txtArea" editable="false">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </TextArea>
+            <Button fx:id="btnReset" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#doReset" text="Reset">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+   </center>
 </BorderPane>
